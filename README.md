@@ -33,4 +33,3 @@ struct automovel {
     char combustivel[50];
     int ano;
 }
-iobjsbuj
