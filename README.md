@@ -1,5 +1,9 @@
 PROJETO_EM_C
 
+//Testes do programa!!
+
+CADASTRO DO CLIENTE: (teste)
+
 #include <stdio.h>
 #include <string.h>
 
@@ -24,6 +28,12 @@ int main() {
     printf("Clientes 1: %s \n", listaClientes[200].nome);
 }
 
+
+CADASTRO DO AUTOMOVEL: (teste)
+
+#include <stdio.h>
+#include <stdlib.h>
+
 struct automovel {
 
     int clienteid;
@@ -39,8 +49,7 @@ struct automovel {
 
 
 
-
-//Teste do programa (02)!!
+//Teste "completo" do cliente e vendedor:
 
 
 #include <stdio.h>
