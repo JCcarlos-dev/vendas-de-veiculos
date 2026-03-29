@@ -1,150 +1,56 @@
-PROJETO_EM_C
+🚘 **Sistema de Venda de Veículos**
 
-//Testes do programa!!
+✍️🏼 **Visão Geral**
+O Sistema de Venda de Veículos é uma aplicação desenvolvida em linguagem C, focada na gestão de estoque, clientes e processamento de transações comerciais para concessionárias ou revendas de automóveis. O sistema permite o controle total desde a entrada do veículo no pátio até a finalização da venda ao consumidor final.
 
-CADASTRO DO CLIENTE: (teste)
+🎯 **Objetivo**
+O sistema tem como principais objetivos:
+*   Gerenciar o inventário de veículos de forma organizada.
+*   Manter um histórico de clientes e suas aquisições.
+*   Controlar o fluxo de vendas e reservas de automóveis.
+*   Gerar relatórios básicos de faturamento e disponibilidade.
 
-#include <stdio.h>
-#include <string.h>
+🧑‍🧑‍🧒‍🧒 **Público-Alvo**
+*   Vendedores de concessionárias.
+*   Gerentes de estoque e administradores de revendas de veículos.
 
-typedef struct {
-    int id;
-    char nome[50];
-    char apelido[50];
-    int numtelefone;
-    char sexo;
-    char endereco;
-    int numeroCPF;
-    char situacao;
-} cliente;
+🫆 **Funcionalidades**
 
-int main() {
-    
-    cliente listaClientes[200];
+☑️ **1. Cadastro de Clientes**
+Permite armazenar os dados dos compradores:
+*   Nome completo.
+*   CPF ou CNPJ (único).
+*   Telefone de contato.
+*   E-mail e Endereço.
 
-    listaClientes[0].id = 1;
-    strcpy(listaClientes[0].nome, "Joao silva");
+☑️ **2. Gestão de Estoque (Veículos)**
+Permite cadastrar e editar veículos com os seguintes dados:
+*   Marca e Modelo.
+*   Ano de fabricação / Ano do modelo.
+*   Placa (identificador único).
+*   Chassi.
+*   Cor.
+*   Preço de venda.
 
-    printf("Clientes 1: %s \n", listaClientes[200].nome);
-}
+☑️ **3. Controle de Status do Veículo**
+Essencial para a dinâmica da loja:
+*   🟢 **Disponível** → No pátio e pronto para venda.
+*   🔵 **Reservado** → Aguardando aprovação de crédito ou sinal de pagamento.
+*   🔴  **Vendido** → Veículo não disponível, vinculado a um comprador.
+*   ⚪ **Em Manutenção** → Veículo em preparação/oficina antes de ir para o pátio.
 
+☑️ **4. Processamento de Vendas**
+*   Associação automática entre **Cliente (CPF) ↔ Veículo (Placa)**.
+*   Registro da data da venda.
+*   Definição da forma de pagamento (À vista, Financiamento, Troca).
 
-CADASTRO DO AUTOMOVEL: (teste)
+☑️ **5. Busca e Filtros (Adicional)**
+*   Pesquisa de veículos por marca ou modelo.
+*   Filtro de veículos por faixa de preço.
 
-#include <stdio.h>
-#include <stdlib.h>
+☑️ **6. Relatórios de Desempenho (Adicional)**
+*   Listagem de todos os veículos vendidos.
+*   Cálculo do valor total em estoque (soma dos preços dos veículos disponíveis).
 
-struct automovel {
-
-    int clienteid;
-    char marca[100];
-    char modelo[100];
-    char matricula[17];
-    int classeveiculo;
-    char cor[50];
-    char combustivel[50];
-    int ano;
-}
-
-
-
-
-//Teste "completo" do cliente e vendedor:
-
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-typedef struct {
-    int id;
-    char nome[50];
-    char apelido[50];
-    int numtelefone;
-    char sexo;
-    char endereco;
-    int numeroBI;
-    char situacao;
-} cliente;
-
-int main() {
-    
-    cliente listaClientes[200];
-
-    listaClientes[0].id = 1;
-    strcpy(listaClientes[0].nome, "Joao Silva");
-
-    printf("Clientes 1: %s \n", listaClientes[200].nome);
-}
-
-typedef struct {
-    int id;
-    char marca[100];
-    char modelo[100];
-    char cor[50];
-    int classeveiculo;
-    char combustivel[50];
-    int ano;
-    float preco;
-    int vendido;
-} veiculo;
-
-void cadastrarVeiculos() {
-    FILE *file = fopen(arquivo, "ab");
-    if (file == NULL){
-        printf("Erro ao abrir arquivo!\n")
-        return 0;
-    }
-    veiculo; 
-
-    printf("\n---Cadastrar Veiculo---\n")
-    printf("ID: "); scanf("id%", &v.id);
-    printf("Marca: "); scanf("%s", v.marca);
-    printf("Modelo: "); scanf("%s", v.modelo);
-    printf("Ano: "); scanf("%d", &v.ano);
-    printf("Preço:"); scanf("%f", &v.preco);
-    v.vendido = 0;
-    
-    fwrite(&v, sizeof(Veiculo), 1, file);
-    fclose(file);
-    printf("veiculo cadastrado com sucesso!\n");
-}
-
-void listarveiculos() {
-    FILE *file = fopen(arquivo, "rb");
-    if(file == NULL) {
-        printf("Nenhum veiculo cadastrado.\n");
-        return;
-    }
-veiculo v;
-printf("\n---Lista de veiculos---\n");
-while (fread(&v, sizeof(Veiculo), 1, file)) {
-    printf("ID: %d | %s %s (%d) - R$ %.2f-%s\n",
-          v.id, v.marca, v.modelo, v.ano, v.preco,
-          v.vendido ? "Vendido" : "Disponivel");
-    }
-    fclose(file);
-}
-
-void venderVeiculos() {
-    int idBusca;
-    printf("\nDigite o ID do veiculo a vender: ");
-    scanf("%d" , &idBusca);
-    printf("Funcionalidade de venda simulada.\n");
-}
-
-int main() {
-    int opsao;
-    do {
-        printf("\n1. Cadastrar Veiculo\n2. Listar Veiculos\n3. Vender Veiculo\n4. Sair\n0pcao: ");
-        scanf("%d", &opcao);
-        switch (opcao) {
-            case 1: CadastrarVeiculo(); break;
-            case 2: ListarVeiculos(); break;
-            case 3: VenderVeiculo(); break;
-            case 4: printf("Saindo...\n"); break;
-            default: printf("Opcao invalida!\n");
-        }
-    } while (opcao ! = 4);
-    return 0;
-}
+👩‍💻 **Tecnologias Utilizadas:**
+     **Linguagem C**
